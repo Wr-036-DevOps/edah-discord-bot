@@ -42,7 +42,7 @@ async def schedule_daily_messages():
     wait_time = (then-now).total_seconds()
     await asyncio.sleep(wait_time)
 
-    channel = 1035105321233960983
+    channel = your channel id
     await channel.send("Good morning!!")
     await channel.send(random.choice(links["play"]))
 
@@ -74,4 +74,4 @@ async def on_ready():
 
 
 if __name__ == '__main__':
-    bot.run("MTAzNTEwMjI5MjczMjU1MTE3Mg.GipkK9.sAjv5rObqd7HQH5RoAJRazdv28I5enESes8lBY")
+    bot.run("your token")
