@@ -1,0 +1,20 @@
+service: sls-send-message-to-discord
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-west-2'}
+  memorySize: 128
+  timeout: 3
+
+functions:
+  index:
+    handler: index.handler
+    description: send mesagges to discord
+    events:
+      - http:
+          path: /home/ubuntu/discord-send-message/serverless.yml
+          method: get
+          cors: true

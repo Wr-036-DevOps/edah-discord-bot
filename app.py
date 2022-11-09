@@ -34,16 +34,15 @@ async def Gif(ctx):
 
 # bot sends message on schedule
 async def schedule_daily_messages():
-    
     now = datetime.datetime.now()
     #then = now+datetime.timedelta(days=1)
     then = now.replace(hour=19, minute=10)
     if then < now:
-        then = now+datetime.timedelta(days=1)
-        wait_time = (then-now).total_seconds()
+        then += now+datetime.timedelta(days=1)
+    wait_time = (then-now).total_seconds()
     await asyncio.sleep(wait_time)
 
-    channel = bot.get_channel("Your channel id")
+    channel = 1035105321233960983
     await channel.send("Good morning!!")
     await channel.send(random.choice(links["play"]))
 
@@ -68,9 +67,6 @@ For example: `dog daily "good morning" 22 30 0` for a message to be sent at 10:3
 
 
 
-
-
-
 @bot.event
 async def on_ready():
     print(f"Logged in as: {bot.user.name}")
@@ -78,4 +74,4 @@ async def on_ready():
 
 
 if __name__ == '__main__':
-    bot.run("Your token")
+    bot.run("MTAzNTEwMjI5MjczMjU1MTE3Mg.GipkK9.sAjv5rObqd7HQH5RoAJRazdv28I5enESes8lBY")
